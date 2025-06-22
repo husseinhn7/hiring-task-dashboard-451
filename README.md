@@ -1,236 +1,300 @@
-# TechFlipp Frontend Task
+# Camera Management System
 
-## Overview
+A modern Next.js web application for managing cameras and analyzing demographics data with powerful insights and analytics.
 
-👋 This is a NextJS interview challenge. Please fork this repo, and push your code to a branch in your forked repo (following the instructions below).
+## 🚀 Features
 
-You are tasked with building a responsive frontend application that interfaces with our Camera Management API. The application will allow users to manage cameras and view demographic analytics data collected by these cameras.
+- **Camera Management**: View, edit, and configure cameras
+- **Demographics Analytics**: Real-time demographics detection and analysis
+- **Tag Management**: Organize cameras with customizable tags
+- **Configuration Management**: Fine-tune demographics detection parameters
+- **Responsive Design**: Works seamlessly on desktop and mobile devices
+- **Real-time Data**: Live analytics and insights
 
-### ✅ Submission Instructions
+## 🛠️ Tech Stack
 
-1. **Fork** this repository to your GitHub account.
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **UI Components**: shadcn/ui + Radix UI
+- **State Management**: TanStack Query (React Query)
+- **Form Handling**: React Hook Form + Zod validation
+- **Charts**: Recharts
+- **Icons**: Lucide React
 
-2. Complete the task in a branch of your **own fork**.
+## 📋 Prerequisites
 
-3. Once you're done, follow this submission process:
+Before running the application, make sure you have the following installed:
 
-   * Open an **issue** in this main repository.
-   * Request for a new branch to be created with the name format:
+- **Node.js** (version 18.0 or higher)
+- **npm** (version 9.0 or higher) or **yarn** (version 1.22 or higher)
 
-     ```
-     Request: {your-name}-submission
-     ```
-   * Example: `alex-submission`
-   * Our team will create that branch and set up **CI/CD previews**.
-   * You will then open a **pull request** from your forked repo to the new branch created under this repository.
+## 🚀 Getting Started
 
-4. Your pull request should include:
+### 1. Clone the Repository
 
-   * Setup instructions to run the app
-   * Overview of your implementation
-   * Any assumptions or design decisions you made
-   * Screenshots or a video preview of the UI in action
+\`\`\`bash
+git clone <repository-url>
+cd camera-management-app
+\`\`\`
 
-🚨 Please note:
-**Candidates who do not complete the task within the given timeframe will not be considered for the position.**
+### 2. Install Dependencies
+
+Using npm:
+\`\`\`bash
+npm install
+\`\`\`
+
+Using yarn:
+\`\`\`bash
+yarn install
+\`\`\`
+
+### 3. Environment Variables
+
+Create a `.env.local` file in the root directory and add the following environment variables:
+
+\`\`\`env
+# API Configuration
+NEXT_PUBLIC_API_URL=https://task-451-api.ryd.wafaicloud.com
+
+# Add other environment variables as needed
+\`\`\`
+
+### 4. Development Server
+
+Start the development server:
+
+Using npm:
+\`\`\`bash
+npm run dev
+\`\`\`
+
+Using yarn:
+\`\`\`bash
+yarn dev
+\`\`\`
+
+The application will be available at [http://localhost:3000](http://localhost:3000)
+
+## 📦 Available Scripts
+
+### Development
+\`\`\`bash
+# Start development server
+npm run dev
+# or
+yarn dev
+\`\`\`
+
+### Building
+\`\`\`bash
+# Build for production
+npm run build
+# or
+yarn build
+\`\`\`
+
+### Production
+\`\`\`bash
+# Start production server (after build)
+npm run start
+# or
+yarn start
+\`\`\`
+
+### Linting
+\`\`\`bash
+# Run ESLint
+npm run lint
+# or
+yarn lint
+\`\`\`
+
+### Testing
+\`\`\`bash
+# Run tests
+npm run test
+# or
+yarn test
+
+# Run tests in watch mode
+npm run test:watch
+# or
+yarn test:watch
+\`\`\`
+
+## 🏗️ Project Structure
+
+\`\`\`
+camera-management-app/
+├── app/                          # Next.js App Router pages
+│   ├── cameras/                  # Camera-related pages
+│   │   ├── [id]/                # Dynamic camera pages
+│   │   │   ├── analytics/       # Analytics page
+│   │   │   ├── demographics/    # Demographics config page
+│   │   │   └── edit/           # Edit camera page
+│   │   └── page.tsx            # Camera list page
+│   ├── demographics/            # Demographics pages
+│   │   └── config/             # Global config page
+│   ├── globals.css             # Global styles
+│   ├── layout.tsx              # Root layout
+│   ├── page.tsx                # Home page
+│   └── providers.tsx           # App providers
+├── components/                  # React components
+│   ├── ui/                     # shadcn/ui components
+│   ├── camera-detail.tsx      # Camera detail component
+│   ├── camera-edit-form.tsx   # Camera edit form
+│   ├── camera-list.tsx        # Camera list component
+│   ├── demographics-*.tsx     # Demographics components
+│   └── ...
+├── hooks/                      # Custom React hooks
+│   ├── use-cameras.ts         # Camera-related hooks
+│   ├── use-demographics.ts    # Demographics hooks
+│   └── ...
+├── lib/                       # Utility libraries
+│   ├── api.ts                 # API client
+│   ├── types.ts               # TypeScript types
+│   ├── utils.ts               # Utility functions
+│   └── validations.ts         # Zod schemas
+├── __tests__/                 # Test files
+├── public/                    # Static assets
+├── package.json              # Dependencies and scripts
+├── tailwind.config.ts        # Tailwind configuration
+├── tsconfig.json            # TypeScript configuration
+└── README.md                # This file
+\`\`\`
+
+## 🔧 Configuration
+
+### API Configuration
+
+The application connects to the camera management API. Update the API base URL in:
+
+- **Environment variable**: `NEXT_PUBLIC_API_URL`
+- **API client**: `lib/api.ts`
+
+### Styling Configuration
+
+- **Tailwind CSS**: Configure in `tailwind.config.ts`
+- **Global styles**: Modify `app/globals.css`
+- **Component styles**: Using Tailwind classes and shadcn/ui
+
+## 📱 Key Features Usage
+
+### Camera Management
+1. **View Cameras**: Navigate to `/cameras` to see all cameras
+2. **Camera Details**: Click on a camera to view detailed information
+3. **Edit Camera**: Use the edit button to modify camera settings
+4. **Tag Management**: Add/remove tags using the dropdown or checkboxes
+
+### Demographics Configuration
+1. **Global Config**: Visit `/demographics/config` for all cameras
+2. **Camera-specific Config**: Access via camera detail page
+3. **Parameter Tuning**: Adjust confidence thresholds and tracking parameters
+
+### Analytics
+1. **View Analytics**: Access from camera detail page
+2. **Filter Data**: Use filters for gender, age, emotion, ethnicity
+3. **Date Range**: Set custom date ranges for analysis
+4. **Export Data**: Download analytics data (if enabled)
+
+## 🧪 Testing
+
+The application includes comprehensive tests using Jest and React Testing Library:
+
+\`\`\`bash
+# Run all tests
+npm run test
+
+# Run tests in watch mode
+npm run test:watch
+
+# Run tests with coverage
+npm run test -- --coverage
+\`\`\`
+
+## 🚀 Deployment
+
+### Vercel (Recommended)
+
+1. **Connect Repository**: Link your Git repository to Vercel
+2. **Environment Variables**: Add environment variables in Vercel dashboard
+3. **Deploy**: Automatic deployment on every push to main branch
+
+### Manual Deployment
+
+\`\`\`bash
+# Build the application
+npm run build
+
+# Start production server
+npm run start
+\`\`\`
+
+## 🔍 Troubleshooting
+
+### Common Issues
+
+1. **Port Already in Use**
+   \`\`\`bash
+   # Kill process on port 3000
+   lsof -ti:3000 | xargs kill -9
+   \`\`\`
+
+2. **Dependencies Issues**
+   \`\`\`bash
+   # Clear node_modules and reinstall
+   rm -rf node_modules package-lock.json
+   npm install
+   \`\`\`
+
+3. **Build Errors**
+   \`\`\`bash
+   # Clear Next.js cache
+   rm -rf .next
+   npm run build
+   \`\`\`
+
+### Environment Issues
+
+- Ensure all required environment variables are set
+- Check API endpoint accessibility
+- Verify Node.js and npm versions
+
+## 📚 API Endpoints
+
+The application integrates with the following API endpoints:
+
+- `GET /cameras` - List all cameras
+- `GET /cameras/{id}` - Get camera details
+- `PUT /cameras/{id}` - Update camera
+- `GET /tags` - List all tags
+- `GET /demographics/config` - List demographics configurations
+- `POST /demographics/config` - Create demographics configuration
+- `PUT /demographics/config/{id}` - Update demographics configuration
+- `GET /demographics/results` - Get demographics analytics
+
+## 🤝 Contributing
+
+1. **Fork the repository**
+2. **Create a feature branch**: `git checkout -b feature/amazing-feature`
+3. **Commit changes**: `git commit -m 'Add amazing feature'`
+4. **Push to branch**: `git push origin feature/amazing-feature`
+5. **Open a Pull Request**
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🆘 Support
+
+For support and questions:
+
+- **Issues**: Create an issue on GitHub
+- **Documentation**: Check the inline code documentation
+- **API Documentation**: Refer to the API endpoint documentation
 
 ---
 
-### 💬 Questions?
-
-If you have any questions, need clarification, or encounter blockers, feel free to **open an issue** in this repository. We’ll be happy to assist!
-
----
-
-## Requirements
-
-### 1. Camera List Page
-- Implement a paginated view of cameras
-- Allow users to control how many items appear per page
-- Provide a way to search for cameras by name
-- Display relevant camera information in a user-friendly manner
-
-### 2. Camera Detail Page
-- Create a view showing comprehensive camera information 
-- Design an intuitive layout for camera details
-
-### 3. Camera Update Functionality
-- Develop a user interface for updating camera details
-- Implement appropriate validation with meaningful feedback
-- Consider the user experience during form submission
-
-### 4. Demographics Configuration
-- Enable users to create or edit demographics configuration for cameras - one to one relationship with camera
-- Design form controls appropriate for each configuration parameter
-- Ensure proper validation of configuration values
-
-### 5. Demographics Results & Analytics
-- Implement filtering capabilities for the data
-- Create informative visualizations that convey demographic insights like charts, graphs, tables, etc.
-
-## Technical Requirements
-
-- Build the application using Next.js, following its best practices for routing, data fetching, and component organization
-- Implement responsive design that works well across different devices
-- Let your imagination make the design of the task responsive.
-
-
-## Nice-to-Have Technical Features
-
-The following features would enhance your solution:
-- Different rendering ways as needed (SSR, ISR, SSG, etc.)
-- Skeleton loading states to improve perceived performance
-- Seamless data refresh mechanisms
-- Render error messages in form fields
-- Optimistic UI updates for a better user experience
-- Organized state management
-- Use React Query (TanStack Query) for fetching and caching data.
-- Creative and intuitive UI/UX design
-- SEO and performance optimizations
-- Unit tests for key components
-
-## API Specification
-
-**Base URL**: https://task-451-api.ryd.wafaicloud.com/
-**Schema**: https://task-451-api.ryd.wafaicloud.com/docs
-
-### Enum Definitions
-
-#### Genders
-```
-MALE = "male"
-FEMALE = "female"
-```
-
-#### Ages
-```
-ZERO_EIGHTEEN = "0-18"
-NINETEEN_THIRTY = "19-30"
-THIRTYONE_FORTYFIVE = "31-45"
-FORTYSIX_SIXTY = "46-60"
-SIXTYPLUS = "60+"
-```
-
-#### Emotions
-```
-ANGRY = "angry"
-FEAR = "fear"
-HAPPY = "happy"
-NEUTRAL = "neutral"
-SAD = "sad"
-SURPRISE = "surprise"
-```
-
-#### Ethnic Groups
-```
-WHITE = "white"
-AFRICAN = "african"
-SOUTH_ASIAN = "south_asian"
-EAST_ASIAN = "east_asian"
-MIDDLE_EASTERN = "middle_eastern"
-```
-
-### Tags Endpoint
-
-#### 1. List All Tags
-```
-GET /tags/
-```
-
-Response: List of all available tags
-
-### Camera Endpoints
-
-#### 1. List Cameras
-```
-GET /cameras/
-Query Parameters:
-- page: int (default=1) - Page number
-- size: int (default=20) - Items per page
-- camera_name: string (optional) - Filter by camera name
-```
-
-Response: Paginated list of cameras
-
-#### 2. Get Camera Details
-```
-GET /cameras/{camera_id}
-```
-
-Response: Detailed camera information including demographics config if it exists
-
-#### 3. Update Camera
-```
-PUT /cameras/{camera_id}
-Body: {
-  "name": string,
-  "rtsp_url": string,
-  "stream_frame_width": int (optional, min=1, max=2560),
-  "stream_frame_height": int (optional, min=1, max=2560),
-  "stream_max_length": int (optional, min=0, max=10000),
-  "stream_quality": int (optional, min=80, max=100),
-  "stream_fps": int (optional, min=1, max=120),
-  "stream_skip_frames": int (optional, min=0, max=100),
-  "tags": array of tag ids (optional)
-}
-```
-
-### Demographics Endpoints
-
-#### 1. Create Demographics Configuration
-```
-POST /demographics/config
-Body: {
-  "camera_id": string,
-  "track_history_max_length": int (optional, min=1, max=100),
-  "exit_threshold": int (optional, min=1, max=300),
-  "min_track_duration": int (optional, min=1, max=60),
-  "detection_confidence_threshold": float (optional, min=0.1, max=1.0),
-  "demographics_confidence_threshold": float (optional, min=0.1, max=1.0),
-  "min_track_updates": int (optional, min=1, max=100),
-  "box_area_threshold": float (optional, min=0.05, max=1.0),
-  "save_interval": int (optional, min=300, max=1800),
-  "frame_skip_interval": float (optional, min=0.1, max=5.0)
-}
-```
-
-#### 2. Update Demographics Configuration
-```
-PUT /demographics/config/{config_id}
-Body: {
-  "track_history_max_length": int (optional, min=1, max=100),
-  "exit_threshold": int (optional, min=1, max=300),
-  "min_track_duration": int (optional, min=1, max=60),
-  "detection_confidence_threshold": float (optional, min=0.1, max=1.0),
-  "demographics_confidence_threshold": float (optional, min=0.1, max=1.0),
-  "min_track_updates": int (optional, min=1, max=100),
-  "box_area_threshold": float (optional, min=0.05, max=1.0),
-  "save_interval": int (optional, min=300, max=1800),
-  "frame_skip_interval": float (optional, min=0.1, max=5.0)
-}
-```
-
-#### 3. Get Demographics Results
-```
-GET /demographics/results
-Query Parameters:
-- camera_id: string (required)
-- gender: string (optional) - Filter by gender
-- age: string (optional) - Filter by age group
-- emotion: string (optional) - Filter by emotion
-- ethnicity: string (optional) - Filter by ethnicity
-- start_date: datetime (optional) - Filter by start date
-- end_date: datetime (optional) - Filter by end date
-```
-
-Response: List of demographics results and analytics data
-
-## Evaluation Criteria
-
-Your submission will be evaluated based on:
-- Feature completeness according to requirements
-- Code quality and organization
-- UI/UX design and responsiveness
-- Performance optimizations
-- Unit test coverage
-- Error handling
+**Happy coding! 🎉**
